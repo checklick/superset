@@ -1,0 +1,773 @@
+{
+  "result": [
+    {
+      "data": [
+        {
+          "Month": "2015-04",
+          "Total Active Users": 1,
+          "Net Growth": 1,
+          "Monthly Growth (%)": "0.00 %"
+        },
+        {
+          "Month": "2015-06",
+          "Total Active Users": 13,
+          "Net Growth": 12,
+          "Monthly Growth (%)": "1200.00 %"
+        },
+        {
+          "Month": "2015-07",
+          "Total Active Users": 111,
+          "Net Growth": 98,
+          "Monthly Growth (%)": "753.85 %"
+        },
+        {
+          "Month": "2015-08",
+          "Total Active Users": 150,
+          "Net Growth": 39,
+          "Monthly Growth (%)": "35.14 %"
+        },
+        {
+          "Month": "2015-09",
+          "Total Active Users": 227,
+          "Net Growth": 77,
+          "Monthly Growth (%)": "51.33 %"
+        },
+        {
+          "Month": "2015-10",
+          "Total Active Users": 241,
+          "Net Growth": 14,
+          "Monthly Growth (%)": "6.17 %"
+        },
+        {
+          "Month": "2015-11",
+          "Total Active Users": 271,
+          "Net Growth": 30,
+          "Monthly Growth (%)": "12.45 %"
+        },
+        {
+          "Month": "2015-12",
+          "Total Active Users": 351,
+          "Net Growth": 80,
+          "Monthly Growth (%)": "29.52 %"
+        },
+        {
+          "Month": "2016-01",
+          "Total Active Users": 433,
+          "Net Growth": 82,
+          "Monthly Growth (%)": "23.36 %"
+        },
+        {
+          "Month": "2016-02",
+          "Total Active Users": 492,
+          "Net Growth": 59,
+          "Monthly Growth (%)": "13.63 %"
+        },
+        {
+          "Month": "2016-03",
+          "Total Active Users": 534,
+          "Net Growth": 42,
+          "Monthly Growth (%)": "8.54 %"
+        },
+        {
+          "Month": "2016-04",
+          "Total Active Users": 588,
+          "Net Growth": 54,
+          "Monthly Growth (%)": "10.11 %"
+        },
+        {
+          "Month": "2016-05",
+          "Total Active Users": 655,
+          "Net Growth": 67,
+          "Monthly Growth (%)": "11.39 %"
+        },
+        {
+          "Month": "2016-06",
+          "Total Active Users": 1037,
+          "Net Growth": 382,
+          "Monthly Growth (%)": "58.32 %"
+        },
+        {
+          "Month": "2016-07",
+          "Total Active Users": 1581,
+          "Net Growth": 544,
+          "Monthly Growth (%)": "52.46 %"
+        },
+        {
+          "Month": "2016-08",
+          "Total Active Users": 1876,
+          "Net Growth": 295,
+          "Monthly Growth (%)": "18.66 %"
+        },
+        {
+          "Month": "2016-09",
+          "Total Active Users": 5444,
+          "Net Growth": 3568,
+          "Monthly Growth (%)": "190.19 %"
+        },
+        {
+          "Month": "2016-10",
+          "Total Active Users": 6354,
+          "Net Growth": 910,
+          "Monthly Growth (%)": "16.72 %"
+        },
+        {
+          "Month": "2016-11",
+          "Total Active Users": 6787,
+          "Net Growth": 433,
+          "Monthly Growth (%)": "6.81 %"
+        },
+        {
+          "Month": "2016-12",
+          "Total Active Users": 40083,
+          "Net Growth": 33296,
+          "Monthly Growth (%)": "490.58 %"
+        },
+        {
+          "Month": "2017-01",
+          "Total Active Users": 40556,
+          "Net Growth": 473,
+          "Monthly Growth (%)": "1.18 %"
+        },
+        {
+          "Month": "2017-02",
+          "Total Active Users": 41101,
+          "Net Growth": 545,
+          "Monthly Growth (%)": "1.34 %"
+        },
+        {
+          "Month": "2017-03",
+          "Total Active Users": 42131,
+          "Net Growth": 1030,
+          "Monthly Growth (%)": "2.51 %"
+        },
+        {
+          "Month": "2017-04",
+          "Total Active Users": 43162,
+          "Net Growth": 1031,
+          "Monthly Growth (%)": "2.45 %"
+        },
+        {
+          "Month": "2017-05",
+          "Total Active Users": 44692,
+          "Net Growth": 1530,
+          "Monthly Growth (%)": "3.54 %"
+        },
+        {
+          "Month": "2017-06",
+          "Total Active Users": 47257,
+          "Net Growth": 2565,
+          "Monthly Growth (%)": "5.74 %"
+        },
+        {
+          "Month": "2017-07",
+          "Total Active Users": 51155,
+          "Net Growth": 3898,
+          "Monthly Growth (%)": "8.25 %"
+        },
+        {
+          "Month": "2017-08",
+          "Total Active Users": 53692,
+          "Net Growth": 2537,
+          "Monthly Growth (%)": "4.96 %"
+        },
+        {
+          "Month": "2017-09",
+          "Total Active Users": 54584,
+          "Net Growth": 892,
+          "Monthly Growth (%)": "1.66 %"
+        },
+        {
+          "Month": "2017-10",
+          "Total Active Users": 55439,
+          "Net Growth": 855,
+          "Monthly Growth (%)": "1.57 %"
+        },
+        {
+          "Month": "2017-11",
+          "Total Active Users": 56578,
+          "Net Growth": 1139,
+          "Monthly Growth (%)": "2.05 %"
+        },
+        {
+          "Month": "2017-12",
+          "Total Active Users": 56756,
+          "Net Growth": 178,
+          "Monthly Growth (%)": "0.31 %"
+        },
+        {
+          "Month": "2018-01",
+          "Total Active Users": 57153,
+          "Net Growth": 397,
+          "Monthly Growth (%)": "0.70 %"
+        },
+        {
+          "Month": "2018-02",
+          "Total Active Users": 57839,
+          "Net Growth": 686,
+          "Monthly Growth (%)": "1.20 %"
+        },
+        {
+          "Month": "2018-03",
+          "Total Active Users": 58890,
+          "Net Growth": 1051,
+          "Monthly Growth (%)": "1.82 %"
+        },
+        {
+          "Month": "2018-04",
+          "Total Active Users": 60087,
+          "Net Growth": 1197,
+          "Monthly Growth (%)": "2.03 %"
+        },
+        {
+          "Month": "2018-05",
+          "Total Active Users": 61817,
+          "Net Growth": 1730,
+          "Monthly Growth (%)": "2.88 %"
+        },
+        {
+          "Month": "2018-06",
+          "Total Active Users": 64463,
+          "Net Growth": 2646,
+          "Monthly Growth (%)": "4.28 %"
+        },
+        {
+          "Month": "2018-07",
+          "Total Active Users": 68022,
+          "Net Growth": 3559,
+          "Monthly Growth (%)": "5.52 %"
+        },
+        {
+          "Month": "2018-08",
+          "Total Active Users": 70311,
+          "Net Growth": 2289,
+          "Monthly Growth (%)": "3.37 %"
+        },
+        {
+          "Month": "2018-09",
+          "Total Active Users": 71126,
+          "Net Growth": 815,
+          "Monthly Growth (%)": "1.16 %"
+        },
+        {
+          "Month": "2018-10",
+          "Total Active Users": 71602,
+          "Net Growth": 476,
+          "Monthly Growth (%)": "0.67 %"
+        },
+        {
+          "Month": "2018-11",
+          "Total Active Users": 72265,
+          "Net Growth": 663,
+          "Monthly Growth (%)": "0.93 %"
+        },
+        {
+          "Month": "2018-12",
+          "Total Active Users": 72477,
+          "Net Growth": 212,
+          "Monthly Growth (%)": "0.29 %"
+        },
+        {
+          "Month": "2019-01",
+          "Total Active Users": 72822,
+          "Net Growth": 345,
+          "Monthly Growth (%)": "0.48 %"
+        },
+        {
+          "Month": "2019-02",
+          "Total Active Users": 73320,
+          "Net Growth": 498,
+          "Monthly Growth (%)": "0.68 %"
+        },
+        {
+          "Month": "2019-03",
+          "Total Active Users": 74177,
+          "Net Growth": 857,
+          "Monthly Growth (%)": "1.17 %"
+        },
+        {
+          "Month": "2019-04",
+          "Total Active Users": 75090,
+          "Net Growth": 913,
+          "Monthly Growth (%)": "1.23 %"
+        },
+        {
+          "Month": "2019-05",
+          "Total Active Users": 76226,
+          "Net Growth": 1136,
+          "Monthly Growth (%)": "1.51 %"
+        },
+        {
+          "Month": "2019-06",
+          "Total Active Users": 78248,
+          "Net Growth": 2022,
+          "Monthly Growth (%)": "2.65 %"
+        },
+        {
+          "Month": "2019-07",
+          "Total Active Users": 81648,
+          "Net Growth": 3400,
+          "Monthly Growth (%)": "4.35 %"
+        },
+        {
+          "Month": "2019-08",
+          "Total Active Users": 83575,
+          "Net Growth": 1927,
+          "Monthly Growth (%)": "2.36 %"
+        },
+        {
+          "Month": "2019-09",
+          "Total Active Users": 84459,
+          "Net Growth": 884,
+          "Monthly Growth (%)": "1.06 %"
+        },
+        {
+          "Month": "2019-10",
+          "Total Active Users": 84975,
+          "Net Growth": 516,
+          "Monthly Growth (%)": "0.61 %"
+        },
+        {
+          "Month": "2019-11",
+          "Total Active Users": 85447,
+          "Net Growth": 472,
+          "Monthly Growth (%)": "0.56 %"
+        },
+        {
+          "Month": "2019-12",
+          "Total Active Users": 85562,
+          "Net Growth": 115,
+          "Monthly Growth (%)": "0.13 %"
+        },
+        {
+          "Month": "2020-01",
+          "Total Active Users": 85786,
+          "Net Growth": 224,
+          "Monthly Growth (%)": "0.26 %"
+        },
+        {
+          "Month": "2020-02",
+          "Total Active Users": 86212,
+          "Net Growth": 426,
+          "Monthly Growth (%)": "0.50 %"
+        },
+        {
+          "Month": "2020-03",
+          "Total Active Users": 86529,
+          "Net Growth": 317,
+          "Monthly Growth (%)": "0.37 %"
+        },
+        {
+          "Month": "2020-04",
+          "Total Active Users": 86593,
+          "Net Growth": 64,
+          "Monthly Growth (%)": "0.07 %"
+        },
+        {
+          "Month": "2020-05",
+          "Total Active Users": 86888,
+          "Net Growth": 295,
+          "Monthly Growth (%)": "0.34 %"
+        },
+        {
+          "Month": "2020-06",
+          "Total Active Users": 87815,
+          "Net Growth": 927,
+          "Monthly Growth (%)": "1.07 %"
+        },
+        {
+          "Month": "2020-07",
+          "Total Active Users": 89708,
+          "Net Growth": 1893,
+          "Monthly Growth (%)": "2.16 %"
+        },
+        {
+          "Month": "2020-08",
+          "Total Active Users": 91292,
+          "Net Growth": 1584,
+          "Monthly Growth (%)": "1.77 %"
+        },
+        {
+          "Month": "2020-09",
+          "Total Active Users": 91782,
+          "Net Growth": 490,
+          "Monthly Growth (%)": "0.54 %"
+        },
+        {
+          "Month": "2020-10",
+          "Total Active Users": 92113,
+          "Net Growth": 331,
+          "Monthly Growth (%)": "0.36 %"
+        },
+        {
+          "Month": "2020-11",
+          "Total Active Users": 92618,
+          "Net Growth": 505,
+          "Monthly Growth (%)": "0.55 %"
+        },
+        {
+          "Month": "2020-12",
+          "Total Active Users": 92725,
+          "Net Growth": 107,
+          "Monthly Growth (%)": "0.12 %"
+        },
+        {
+          "Month": "2021-01",
+          "Total Active Users": 92934,
+          "Net Growth": 209,
+          "Monthly Growth (%)": "0.23 %"
+        },
+        {
+          "Month": "2021-02",
+          "Total Active Users": 93320,
+          "Net Growth": 386,
+          "Monthly Growth (%)": "0.42 %"
+        },
+        {
+          "Month": "2021-03",
+          "Total Active Users": 94388,
+          "Net Growth": 1068,
+          "Monthly Growth (%)": "1.14 %"
+        },
+        {
+          "Month": "2021-04",
+          "Total Active Users": 95267,
+          "Net Growth": 879,
+          "Monthly Growth (%)": "0.93 %"
+        },
+        {
+          "Month": "2021-05",
+          "Total Active Users": 96757,
+          "Net Growth": 1490,
+          "Monthly Growth (%)": "1.56 %"
+        },
+        {
+          "Month": "2021-06",
+          "Total Active Users": 99134,
+          "Net Growth": 2377,
+          "Monthly Growth (%)": "2.46 %"
+        },
+        {
+          "Month": "2021-07",
+          "Total Active Users": 103020,
+          "Net Growth": 3886,
+          "Monthly Growth (%)": "3.92 %"
+        },
+        {
+          "Month": "2021-08",
+          "Total Active Users": 105370,
+          "Net Growth": 2350,
+          "Monthly Growth (%)": "2.28 %"
+        },
+        {
+          "Month": "2021-09",
+          "Total Active Users": 106071,
+          "Net Growth": 701,
+          "Monthly Growth (%)": "0.67 %"
+        },
+        {
+          "Month": "2021-10",
+          "Total Active Users": 106510,
+          "Net Growth": 439,
+          "Monthly Growth (%)": "0.41 %"
+        },
+        {
+          "Month": "2021-11",
+          "Total Active Users": 107204,
+          "Net Growth": 694,
+          "Monthly Growth (%)": "0.65 %"
+        },
+        {
+          "Month": "2021-12",
+          "Total Active Users": 107362,
+          "Net Growth": 158,
+          "Monthly Growth (%)": "0.15 %"
+        },
+        {
+          "Month": "2022-01",
+          "Total Active Users": 107783,
+          "Net Growth": 421,
+          "Monthly Growth (%)": "0.39 %"
+        },
+        {
+          "Month": "2022-02",
+          "Total Active Users": 108702,
+          "Net Growth": 919,
+          "Monthly Growth (%)": "0.85 %"
+        },
+        {
+          "Month": "2022-03",
+          "Total Active Users": 109979,
+          "Net Growth": 1277,
+          "Monthly Growth (%)": "1.17 %"
+        },
+        {
+          "Month": "2022-04",
+          "Total Active Users": 111174,
+          "Net Growth": 1195,
+          "Monthly Growth (%)": "1.09 %"
+        },
+        {
+          "Month": "2022-05",
+          "Total Active Users": 112694,
+          "Net Growth": 1520,
+          "Monthly Growth (%)": "1.37 %"
+        },
+        {
+          "Month": "2022-06",
+          "Total Active Users": 114596,
+          "Net Growth": 1902,
+          "Monthly Growth (%)": "1.69 %"
+        },
+        {
+          "Month": "2022-07",
+          "Total Active Users": 117728,
+          "Net Growth": 3132,
+          "Monthly Growth (%)": "2.73 %"
+        },
+        {
+          "Month": "2022-08",
+          "Total Active Users": 120011,
+          "Net Growth": 2283,
+          "Monthly Growth (%)": "1.94 %"
+        },
+        {
+          "Month": "2022-09",
+          "Total Active Users": 121006,
+          "Net Growth": 995,
+          "Monthly Growth (%)": "0.83 %"
+        },
+        {
+          "Month": "2022-10",
+          "Total Active Users": 121512,
+          "Net Growth": 506,
+          "Monthly Growth (%)": "0.42 %"
+        },
+        {
+          "Month": "2022-11",
+          "Total Active Users": 122109,
+          "Net Growth": 597,
+          "Monthly Growth (%)": "0.49 %"
+        },
+        {
+          "Month": "2022-12",
+          "Total Active Users": 122303,
+          "Net Growth": 194,
+          "Monthly Growth (%)": "0.16 %"
+        },
+        {
+          "Month": "2023-01",
+          "Total Active Users": 122904,
+          "Net Growth": 601,
+          "Monthly Growth (%)": "0.49 %"
+        },
+        {
+          "Month": "2023-02",
+          "Total Active Users": 123805,
+          "Net Growth": 901,
+          "Monthly Growth (%)": "0.73 %"
+        },
+        {
+          "Month": "2023-03",
+          "Total Active Users": 125266,
+          "Net Growth": 1461,
+          "Monthly Growth (%)": "1.18 %"
+        },
+        {
+          "Month": "2023-04",
+          "Total Active Users": 126523,
+          "Net Growth": 1257,
+          "Monthly Growth (%)": "1.00 %"
+        },
+        {
+          "Month": "2023-05",
+          "Total Active Users": 128135,
+          "Net Growth": 1612,
+          "Monthly Growth (%)": "1.27 %"
+        },
+        {
+          "Month": "2023-06",
+          "Total Active Users": 130691,
+          "Net Growth": 2556,
+          "Monthly Growth (%)": "1.99 %"
+        },
+        {
+          "Month": "2023-07",
+          "Total Active Users": 134184,
+          "Net Growth": 3493,
+          "Monthly Growth (%)": "2.67 %"
+        },
+        {
+          "Month": "2023-08",
+          "Total Active Users": 136466,
+          "Net Growth": 2282,
+          "Monthly Growth (%)": "1.70 %"
+        },
+        {
+          "Month": "2023-09",
+          "Total Active Users": 137230,
+          "Net Growth": 764,
+          "Monthly Growth (%)": "0.56 %"
+        },
+        {
+          "Month": "2023-10",
+          "Total Active Users": 137835,
+          "Net Growth": 605,
+          "Monthly Growth (%)": "0.44 %"
+        },
+        {
+          "Month": "2023-11",
+          "Total Active Users": 138112,
+          "Net Growth": 277,
+          "Monthly Growth (%)": "0.20 %"
+        },
+        {
+          "Month": "2023-12",
+          "Total Active Users": 138244,
+          "Net Growth": 132,
+          "Monthly Growth (%)": "0.10 %"
+        },
+        {
+          "Month": "2024-01",
+          "Total Active Users": 138999,
+          "Net Growth": 755,
+          "Monthly Growth (%)": "0.55 %"
+        },
+        {
+          "Month": "2024-02",
+          "Total Active Users": 139773,
+          "Net Growth": 774,
+          "Monthly Growth (%)": "0.56 %"
+        },
+        {
+          "Month": "2024-03",
+          "Total Active Users": 140850,
+          "Net Growth": 1077,
+          "Monthly Growth (%)": "0.77 %"
+        },
+        {
+          "Month": "2024-04",
+          "Total Active Users": 142152,
+          "Net Growth": 1302,
+          "Monthly Growth (%)": "0.92 %"
+        },
+        {
+          "Month": "2024-05",
+          "Total Active Users": 143698,
+          "Net Growth": 1546,
+          "Monthly Growth (%)": "1.09 %"
+        },
+        {
+          "Month": "2024-06",
+          "Total Active Users": 146119,
+          "Net Growth": 2421,
+          "Monthly Growth (%)": "1.68 %"
+        },
+        {
+          "Month": "2024-07",
+          "Total Active Users": 149537,
+          "Net Growth": 3418,
+          "Monthly Growth (%)": "2.34 %"
+        },
+        {
+          "Month": "2024-08",
+          "Total Active Users": 151654,
+          "Net Growth": 2117,
+          "Monthly Growth (%)": "1.42 %"
+        },
+        {
+          "Month": "2024-09",
+          "Total Active Users": 152345,
+          "Net Growth": 691,
+          "Monthly Growth (%)": "0.46 %"
+        },
+        {
+          "Month": "2024-10",
+          "Total Active Users": 152844,
+          "Net Growth": 499,
+          "Monthly Growth (%)": "0.33 %"
+        },
+        {
+          "Month": "2024-11",
+          "Total Active Users": 153350,
+          "Net Growth": 506,
+          "Monthly Growth (%)": "0.33 %"
+        },
+        {
+          "Month": "2024-12",
+          "Total Active Users": 153445,
+          "Net Growth": 95,
+          "Monthly Growth (%)": "0.06 %"
+        },
+        {
+          "Month": "2025-01",
+          "Total Active Users": 154078,
+          "Net Growth": 633,
+          "Monthly Growth (%)": "0.41 %"
+        },
+        {
+          "Month": "2025-02",
+          "Total Active Users": 154894,
+          "Net Growth": 816,
+          "Monthly Growth (%)": "0.53 %"
+        },
+        {
+          "Month": "2025-03",
+          "Total Active Users": 156081,
+          "Net Growth": 1187,
+          "Monthly Growth (%)": "0.77 %"
+        },
+        {
+          "Month": "2025-04",
+          "Total Active Users": 157228,
+          "Net Growth": 1147,
+          "Monthly Growth (%)": "0.73 %"
+        },
+        {
+          "Month": "2025-05",
+          "Total Active Users": 158868,
+          "Net Growth": 1640,
+          "Monthly Growth (%)": "1.04 %"
+        },
+        {
+          "Month": "2025-06",
+          "Total Active Users": 161306,
+          "Net Growth": 2438,
+          "Monthly Growth (%)": "1.53 %"
+        },
+        {
+          "Month": "2025-07",
+          "Total Active Users": 165068,
+          "Net Growth": 3762,
+          "Monthly Growth (%)": "2.33 %"
+        },
+        {
+          "Month": "2025-08",
+          "Total Active Users": 165303,
+          "Net Growth": 235,
+          "Monthly Growth (%)": "0.14 %"
+        },
+        {
+          "Month": "2025-09",
+          "Total Active Users": 165304,
+          "Net Growth": 1,
+          "Monthly Growth (%)": "0.00 %"
+        },
+        {
+          "Month": "2025-10",
+          "Total Active Users": 165321,
+          "Net Growth": 17,
+          "Monthly Growth (%)": "0.01 %"
+        }
+      ],
+      "colnames": [
+        "Month",
+        "Total Active Users",
+        "Net Growth",
+        "Monthly Growth (%)"
+      ],
+      "coltypes": [1, 0, 0, 1],
+      "rowcount": 126,
+      "sql_rowcount": 126
+    }
+  ]
+}
