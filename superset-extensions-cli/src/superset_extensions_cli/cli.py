@@ -404,19 +404,57 @@ def dev(ctx: click.Context) -> None:
 
 
 @app.command()
-def init() -> None:
-    id_ = click.prompt("Extension ID (unique identifier, alphanumeric only)", type=str)
+@click.option(
+    "--id",
+    "id_opt",
+    default=None,
+    help="Extension ID (alphanumeric and underscores only)",
+)
+@click.option("--name", "name_opt", default=None, help="Extension display name")
+@click.option(
+    "--version", "version_opt", default=None, help="Initial version (default: 0.1.0)"
+)
+@click.option(
+    "--license", "license_opt", default=None, help="License (default: Apache-2.0)"
+)
+@click.option(
+    "--frontend/--no-frontend", "frontend_opt", default=None, help="Include frontend"
+)
+@click.option(
+    "--backend/--no-backend", "backend_opt", default=None, help="Include backend"
+)
+def init(
+    id_opt: str | None,
+    name_opt: str | None,
+    version_opt: str | None,
+    license_opt: str | None,
+    frontend_opt: bool | None,
+    backend_opt: bool | None,
+) -> None:
+    id_ = id_opt or click.prompt(
+        "Extension ID (unique identifier, alphanumeric only)", type=str
+    )
     if not re.match(r"^[a-zA-Z0-9_]+$", id_):
         click.secho(
             "❌ ID must be alphanumeric (letters, digits, underscore).", fg="red"
         )
         sys.exit(1)
 
-    name = click.prompt("Extension name (human-readable display name)", type=str)
-    version = click.prompt("Initial version", default="0.1.0")
-    license = click.prompt("License", default="Apache-2.0")
-    include_frontend = click.confirm("Include frontend?", default=True)
-    include_backend = click.confirm("Include backend?", default=True)
+    name = name_opt or click.prompt(
+        "Extension name (human-readable display name)", type=str
+    )
+    version = version_opt or click.prompt("Initial version", default="0.1.0")
+    license_ = license_opt or click.prompt("License", default="Apache-2.0")
+    include_frontend = (
+        frontend_opt
+        if frontend_opt is not None
+        else click.confirm("Include frontend?", default=True)
+    )
+    include_backend = (
+        backend_opt
+        if backend_opt is not None
+        else click.confirm("Include backend?", default=True)
+    )
 
     target_dir = Path.cwd() / id_
     if target_dir.exists():
@@ -431,7 +469,7 @@ def init() -> None:
         "name": name,
         "include_frontend": include_frontend,
         "include_backend": include_backend,
-        "license": license,
+        "license": license_,
         "version": version,
     }
 
@@ -441,24 +479,42 @@ def init() -> None:
     (target_dir / "extension.json").write_text(extension_json)
     click.secho("✅ Created extension.json", fg="green")
 
-    # Copy frontend template
+    # Initialize frontend files
     if include_frontend:
         frontend_dir = target_dir / "frontend"
         frontend_dir.mkdir()
+        frontend_src_dir = frontend_dir / "src"
+        frontend_src_dir.mkdir()
 
-        # package.json
+        # frontend files
         package_json = env.get_template("frontend/package.json.j2").render(ctx)
         (frontend_dir / "package.json").write_text(package_json)
+        webpack_config = env.get_template("frontend/webpack.config.js.j2").render(ctx)
+        (frontend_dir / "webpack.config.js").write_text(webpack_config)
+        tsconfig_json = env.get_template("frontend/tsconfig.json.j2").render(ctx)
+        (frontend_dir / "tsconfig.json").write_text(tsconfig_json)
+        index_tsx = env.get_template("frontend/src/index.tsx.j2").render(ctx)
+        (frontend_src_dir / "index.tsx").write_text(index_tsx)
         click.secho("✅ Created frontend folder structure", fg="green")
 
-    # Copy backend template
+    # Initialize backend files
     if include_backend:
         backend_dir = target_dir / "backend"
         backend_dir.mkdir()
+        backend_src_dir = backend_dir / "src"
+        backend_src_dir.mkdir()
+        backend_src_package_dir = backend_src_dir / id_
+        backend_src_package_dir.mkdir()
 
-        # pyproject.toml
+        # backend files
         pyproject_toml = env.get_template("backend/pyproject.toml.j2").render(ctx)
         (backend_dir / "pyproject.toml").write_text(pyproject_toml)
+        init_py = env.get_template("backend/src/package/__init__.py.j2").render(ctx)
+        (backend_src_package_dir / "__init__.py").write_text(init_py)
+        entrypoint_py = env.get_template("backend/src/package/entrypoint.py.j2").render(
+            ctx
+        )
+        (backend_src_package_dir / "entrypoint.py").write_text(entrypoint_py)
 
         click.secho("✅ Created backend folder structure", fg="green")
 
