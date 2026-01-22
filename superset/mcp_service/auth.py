@@ -28,6 +28,7 @@ Future enhancements (to be added in separate PRs):
 """
 
 import logging
+from contextlib import AbstractContextManager
 from typing import Any, Callable, TYPE_CHECKING, TypeVar
 
 from flask import g
@@ -126,14 +127,22 @@ def has_dataset_access(dataset: "SqlaTable") -> bool:
         return False  # Deny access on error
 
 
-def _setup_user_context() -> User:
+def _setup_user_context() -> User | None:
     """
     Set up user context for MCP tool execution.
 
     Returns:
-        User object with roles and groups loaded
+        User object with roles and groups loaded, or None if no Flask context
     """
-    user = get_user_from_request()
+    try:
+        user = get_user_from_request()
+    except RuntimeError as e:
+        # No Flask application context (e.g., prompts before middleware runs)
+        # This is expected for some FastMCP operations - return None gracefully
+        if "application context" in str(e):
+            logger.debug("No Flask app context available for user setup")
+            return None
+        raise
 
     # Validate user has necessary relationships loaded
     # (Force access to ensure they're loaded if lazy)
@@ -171,12 +180,12 @@ def _cleanup_session_finally() -> None:
         logger.warning("Error in finally block: %s", e)
 
 
-def mcp_auth_hook(tool_func: F) -> F:
+def mcp_auth_hook(tool_func: F) -> F:  # noqa: C901
     """
     Authentication and authorization decorator for MCP tools.
 
-    This decorator assumes Flask application context and g.user
-    have already been set by WorkspaceContextMiddleware.
+    This decorator pushes Flask application context and sets up g.user
+    for MCP tool execution.
 
     Supports both sync and async tool functions.
 
@@ -184,8 +193,23 @@ def mcp_auth_hook(tool_func: F) -> F:
     TODO (future PR): Add JWT scope validation
     TODO (future PR): Add comprehensive audit logging
     """
+    import contextlib
     import functools
     import inspect
+    import types
+
+    from flask import has_app_context
+
+    from superset.mcp_service.flask_singleton import get_flask_app
+
+    def _get_app_context_manager() -> AbstractContextManager[None]:
+        """Return app context manager only if not already in one."""
+        if has_app_context():
+            # Already in app context (e.g., in tests), use null context
+            return contextlib.nullcontext()
+        # Push new app context for standalone MCP server
+        app = get_flask_app()
+        return app.app_context()
 
     is_async = inspect.iscoroutinefunction(tool_func)
 
@@ -193,42 +217,123 @@ def mcp_auth_hook(tool_func: F) -> F:
 
         @functools.wraps(tool_func)
         async def async_wrapper(*args: Any, **kwargs: Any) -> Any:
-            user = _setup_user_context()
+            with _get_app_context_manager():
+                user = _setup_user_context()
 
-            try:
-                logger.debug(
-                    "MCP tool call: user=%s, tool=%s",
-                    user.username,
-                    tool_func.__name__,
-                )
-                result = await tool_func(*args, **kwargs)
-                return result
-            except Exception:
-                _cleanup_session_on_error()
-                raise
-            finally:
-                _cleanup_session_finally()
+                # No Flask context - this is a FastMCP internal operation
+                # (e.g., tool discovery, prompt listing) that doesn't require auth
+                if user is None:
+                    logger.debug(
+                        "MCP internal call without Flask context: tool=%s",
+                        tool_func.__name__,
+                    )
+                    return await tool_func(*args, **kwargs)
 
-        return async_wrapper  # type: ignore[return-value]
+                try:
+                    logger.debug(
+                        "MCP tool call: user=%s, tool=%s",
+                        user.username,
+                        tool_func.__name__,
+                    )
+                    result = await tool_func(*args, **kwargs)
+                    return result
+                except Exception:
+                    _cleanup_session_on_error()
+                    raise
+                finally:
+                    _cleanup_session_finally()
+
+        wrapper = async_wrapper
 
     else:
 
         @functools.wraps(tool_func)
         def sync_wrapper(*args: Any, **kwargs: Any) -> Any:
-            user = _setup_user_context()
+            with _get_app_context_manager():
+                user = _setup_user_context()
 
-            try:
-                logger.debug(
-                    "MCP tool call: user=%s, tool=%s",
-                    user.username,
-                    tool_func.__name__,
-                )
-                result = tool_func(*args, **kwargs)
-                return result
-            except Exception:
-                _cleanup_session_on_error()
-                raise
-            finally:
-                _cleanup_session_finally()
+                # No Flask context - this is a FastMCP internal operation
+                # (e.g., tool discovery, prompt listing) that doesn't require auth
+                if user is None:
+                    logger.debug(
+                        "MCP internal call without Flask context: tool=%s",
+                        tool_func.__name__,
+                    )
+                    return tool_func(*args, **kwargs)
 
-        return sync_wrapper  # type: ignore[return-value]
+                try:
+                    logger.debug(
+                        "MCP tool call: user=%s, tool=%s",
+                        user.username,
+                        tool_func.__name__,
+                    )
+                    result = tool_func(*args, **kwargs)
+                    return result
+                except Exception:
+                    _cleanup_session_on_error()
+                    raise
+                finally:
+                    _cleanup_session_finally()
+
+        wrapper = sync_wrapper
+
+    # Merge original function's __globals__ into wrapper's __globals__
+    # This allows get_type_hints() to resolve type annotations from the
+    # original module (e.g., Context from fastmcp)
+    # FastMCP 2.13.2+ uses get_type_hints() which needs access to these types
+    merged_globals = {**wrapper.__globals__, **tool_func.__globals__}  # type: ignore[attr-defined]
+    new_wrapper = types.FunctionType(
+        wrapper.__code__,  # type: ignore[attr-defined]
+        merged_globals,
+        wrapper.__name__,
+        wrapper.__defaults__,  # type: ignore[attr-defined]
+        wrapper.__closure__,  # type: ignore[attr-defined]
+    )
+    # Copy __dict__ but exclude __wrapped__
+    # NOTE: We intentionally do NOT preserve __wrapped__ here.
+    # Setting __wrapped__ causes inspect.signature() to follow the chain
+    # and find 'ctx' in the original function's signature, even after
+    # FastMCP's create_function_without_params removes it from annotations.
+    # This breaks Pydantic's TypeAdapter which expects signature params
+    # to match type_hints.
+    new_wrapper.__dict__.update(
+        {k: v for k, v in wrapper.__dict__.items() if k != "__wrapped__"}
+    )
+    new_wrapper.__module__ = wrapper.__module__
+    new_wrapper.__qualname__ = wrapper.__qualname__
+    new_wrapper.__annotations__ = wrapper.__annotations__
+    # Copy docstring from original function (not wrapper, which may have lost it)
+    new_wrapper.__doc__ = tool_func.__doc__
+
+    # Set __signature__ from the original function, but:
+    # 1. Remove ctx parameter - FastMCP tools don't expose it to clients
+    # 2. Skip if original has *args (parse_request output has its own handling)
+    from fastmcp import Context as FMContext
+
+    tool_sig = inspect.signature(tool_func)
+    has_var_positional = any(
+        p.kind == inspect.Parameter.VAR_POSITIONAL for p in tool_sig.parameters.values()
+    )
+
+    if not has_var_positional:
+        # For functions without *args, preserve signature but remove ctx
+        new_params = []
+        for _name, param in tool_sig.parameters.items():
+            # Skip ctx parameter - FastMCP tools don't expose it to clients
+            if param.annotation is FMContext or (
+                hasattr(param.annotation, "__name__")
+                and param.annotation.__name__ == "Context"
+            ):
+                continue
+            new_params.append(param)
+        new_wrapper.__signature__ = tool_sig.replace(  # type: ignore[attr-defined]
+            parameters=new_params
+        )
+
+        # Also remove ctx from annotations to match signature
+        if "ctx" in new_wrapper.__annotations__:
+            del new_wrapper.__annotations__["ctx"]
+    # For functions with *args (parse_request output), the signature
+    # is already set by parse_request without ctx.
+
+    return new_wrapper  # type: ignore[return-value]

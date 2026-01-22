@@ -92,9 +92,7 @@ export type ResidualQueryObjectData = {
  * and `transformProps`.
  */
 export interface QueryObject
-  extends QueryFields,
-    TimeRange,
-    ResidualQueryObjectData {
+  extends QueryFields, TimeRange, ResidualQueryObjectData {
   /**
    * Definition for annotation layers.
    */
@@ -155,6 +153,8 @@ export interface QueryObject
   series_columns?: QueryFormColumn[];
   series_limit?: number;
   series_limit_metric?: Maybe<QueryFormMetric>;
+
+  visible_deckgl_layers?: number[];
 }
 
 export interface QueryContext {
