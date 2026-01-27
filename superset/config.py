@@ -436,6 +436,7 @@ LANGUAGES = {
     "sl": {"flag": "si", "name": "Slovenian"},
     "nl": {"flag": "nl", "name": "Dutch"},
     "uk": {"flag": "uk", "name": "Ukranian"},
+    "mi": {"flag": "nz", "name": "Māori"},
 }
 # Turning off i18n by default as translation in most languages are
 # incomplete and not well maintained.
@@ -902,6 +903,8 @@ EXTRA_CATEGORICAL_COLOR_SCHEMES: list[dict[str, Any]] = []
 THEME_DEFAULT: Theme = {
     "token": {
         # Brand
+        # Application name for window titles
+        "brandAppName": APP_NAME,
         "brandLogoAlt": "Apache Superset",
         "brandLogoUrl": APP_ICON,
         "brandLogoMargin": "18px 0",
@@ -919,7 +922,7 @@ THEME_DEFAULT: Theme = {
         "colorInfo": "#66bcfe",
         # Fonts
         "fontUrls": [],
-        "fontFamily": "Inter, Helvetica, Arial",
+        "fontFamily": "Inter, Helvetica, Arial, sans-serif",
         "fontFamilyCode": "'Fira Code', 'Courier New', monospace",
         # Extra tokens
         "transitionTiming": 0.3,
@@ -929,6 +932,8 @@ THEME_DEFAULT: Theme = {
         "fontWeightNormal": "400",
         "fontWeightLight": "300",
         "fontWeightStrong": "500",
+        # Editor selection color (for SQL Lab text highlighting)
+        "colorEditorSelection": "#fff5cf",
     },
     "algorithm": "default",
 }
@@ -938,6 +943,11 @@ THEME_DEFAULT: Theme = {
 # Set to None to disable dark mode
 THEME_DARK: Optional[Theme] = {
     **THEME_DEFAULT,
+    "token": {
+        **THEME_DEFAULT["token"],
+        # Darker selection color for dark mode
+        "colorEditorSelection": "#5c4d1a",
+    },
     "algorithm": "dark",
 }
 
